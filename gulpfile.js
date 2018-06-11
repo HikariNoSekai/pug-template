@@ -65,7 +65,7 @@ gulp.task('js', function() {
 		.pipe(browserify({
 			debug: true,
 			transform: [babelify.configure({
-				presets: ['es2015']
+				presets: ['env']
 			})]
 		}))
 		.pipe(uglify())
