@@ -19,6 +19,7 @@
         "gulp-postcss": "^7.0.1",
         "gulp-rename": "^1.2.2",
         "gulp-uglify": "^3.0.0",
+        "gulp-watch": "^5.0.1",
         "jquery": "^3.3.1",
         "postcss-apply": "^0.10.0",
         "postcss-cssnext": "^3.1.0",
