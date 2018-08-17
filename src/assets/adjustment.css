@@ -4,13 +4,6 @@
   --accent-color: rgb(102, 131, 51);
 }
 
-$proxreg: 'Proxima Nova Rg', sans-serif;
-$proxl: 'Proxima Nova Lt', sans-serif;
-$proxsb: 'Proxima Nova Sb', sans-serif;
-$proxb: 'Proxima Nova Rg', sans-serif;
-$myriadpro: "MyriadProRegular", sans-serif;
-
-
 * {
   box-sizing: border-box;
 }
