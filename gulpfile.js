@@ -15,7 +15,8 @@ const gulp = require('gulp'),
     pug = require('gulp-pug'),
     plumber = require('gulp-plumber'),
     sourcemaps = require('gulp-sourcemaps'),
-    mixins = require('postcss-mixins');
+    mixins = require('postcss-mixins'),
+    imagemin = require('gulp-imagemin');
 const watch = require('gulp-watch');
 
 
@@ -90,7 +91,23 @@ gulp.task('reload', function () {
     });
 });
 
-gulp.task('watch', ['reload', 'js', 'css', 'html', 'fonts'], function () {
+gulp.task('img', function() {
+    return gulp.src('src/img/**/*.*')
+        .pipe(imagemin([
+            imagemin.gifsicle({ interlaced: true }),
+            imagemin.jpegtran({ progressive: true }),
+            imagemin.optipng({ optimizationLevel: 5 }),
+            imagemin.svgo({
+                plugins: [
+                    { removeViewBox: true },
+                    { cleanupIDs: false }
+                ]
+            })
+        ]))
+        .pipe(gulp.dest('dist/img'))
+});
+
+gulp.task('watch', ['reload', 'js', 'css', 'html', 'img','fonts'], function () {
     watch('src/**/*.pug', () => gulp.start('html'));
     watch('src/**/*.css', () => gulp.start('css'));
     watch('src/**/*.js', () => gulp.start('js'));
